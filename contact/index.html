@@ -13,16 +13,20 @@
   <h1>R &nbsp; E &nbsp; E &nbsp; N &nbsp; A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P &nbsp; E &nbsp; T &nbsp; R &nbsp; I &nbsp; C &nbsp; K</h1>
   <nav class="nav-bar">
     <ul>
-      <li><a href="../index.html">about</a></li>
-      <li><a href="../gallery/index.html">gallery</a></li>
-      <li><a href="index.html">contact</a></li>
+      <li><a href="../">about</a></li>
+      <li><a href="../gallery/">gallery</a></li>
+      <li><a href="./">contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
   <div class="form-container">
-    <form action="mailto:you@example.com" method="post" enctype="text/plain">
+    <!-- Using FormSubmit.co to send email without a server.
+         To change the recipient, update the action URL below. -->
+    <form action="https://formsubmit.co/452ee81060288eeddb4496a7e412b337" method="POST">
+      <input type="hidden" name="_subject" value="New message from wrens.widgets contact form">
+      <input type="hidden" name="_captcha" value="false">
       <p class="p3"><label>Name<br><input type="text" name="name" required></label></p>
       <p class="p3"><label>Email<br><input type="email" name="email" required></label></p>
       <p class="p3"><label>Message<br><textarea name="message" rows="6" required></textarea></label></p>

@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gallery</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
@@ -13,19 +13,71 @@
   <h1>R &nbsp; E &nbsp; E &nbsp; N &nbsp; A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P &nbsp; E &nbsp; T &nbsp; R &nbsp; I &nbsp; C &nbsp; K</h1>
   <nav class="nav-bar">
     <ul>
-      <li><a href="../index.html">about</a></li>
-      <li><a href="index.html">gallery</a></li>
-      <li><a href="../contact/index.html">contact</a></li>
+      <li><a href="../">about</a></li>
+      <li><a href="./">gallery</a></li>
+      <li><a href="../contact/">contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main class="content">
-  <p>Pretty pictures to come...</p>
+  <div id="gallery" class="gallery-grid" aria-live="polite">
+    <div class="gallery-loading">Loading gallery…</div>
+  </div>
 </main>
 
 <footer class="site-footer">
   <a href="https://github.com/reenapetrick">Github</a> &nbsp;|&nbsp; <a href="https://www.instagram.com/wrens.widgets/">Instagram</a>
 </footer>
+
+<script>
+async function renderGallery() {
+  const container = document.getElementById('gallery');
+  if (!container) return;
+
+  function setRowSpan(item, img) {
+    const style = getComputedStyle(container);
+    const rowHeight = parseInt(style.getPropertyValue('grid-auto-rows'), 10);
+    const rowGap = parseInt(style.getPropertyValue('gap'), 10);
+    const span = Math.ceil((img.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+    item.style.gridRowEnd = `span ${span}`;
+  }
+
+  container.innerHTML = '<div class="gallery-loading">Loading gallery…</div>';
+
+  try {
+    const response = await fetch('gallery.json');
+    if (!response.ok) throw new Error(response.statusText);
+
+    const images = await response.json();
+    const fragment = document.createDocumentFragment();
+
+    images.forEach(({ src, alt }) => {
+      const figure = document.createElement('figure');
+      figure.className = 'gallery-item';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt;
+
+      img.addEventListener('load', () => setRowSpan(figure, img));
+      img.addEventListener('error', () => {
+        figure.remove();
+      });
+
+      figure.appendChild(img);
+      fragment.appendChild(figure);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(fragment);
+  } catch (err) {
+    console.error('Gallery load error:', err);
+    container.innerHTML = '<div class="gallery-loading">Unable to load gallery images.</div>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', renderGallery);
+</script>
 </body>
 </html>
