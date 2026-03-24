@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gallery - Wren's Widgets</title>
+  <title>Portfolio - Wren's Widgets</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/png" href="../favicon.png">
 </head>
@@ -15,8 +15,8 @@
   <nav class="nav-bar">
     <ul>
       <li><a href="../">about</a></li>
-      <li><a href="./">gallery</a></li>
-      <li><a href="../portfolio/">portfolio</a></li>
+      <li><a href="../gallery/">gallery</a></li>
+      <li><a href="./">portfolio</a></li>
       <li><a href="../contact/">contact</a></li>
     </ul>
   </nav>
@@ -24,7 +24,7 @@
 
 <main class="content">
   <div id="gallery" class="gallery-grid" aria-live="polite">
-    <div class="gallery-loading">Loading gallery…</div>
+    <div class="gallery-loading">Loading portfolio…</div>
   </div>
 </main>
 
@@ -45,10 +45,10 @@ async function renderGallery() {
     item.style.gridRowEnd = `span ${span}`;
   }
 
-  container.innerHTML = '<div class="gallery-loading">Loading gallery…</div>';
+  container.innerHTML = '<div class="gallery-loading">Loading portfolio…</div>';
 
   try {
-    const response = await fetch('gallery.json');
+    const response = await fetch('portfolio.json');
     if (!response.ok) throw new Error(response.statusText);
 
     const images = await response.json();
@@ -75,7 +75,7 @@ async function renderGallery() {
     container.appendChild(fragment);
   } catch (err) {
     console.error('Gallery load error:', err);
-    container.innerHTML = '<div class="gallery-loading">Unable to load gallery images.</div>';
+    container.innerHTML = '<div class="gallery-loading">Unable to load portfolio images.</div>';
   }
 }
 

@@ -4,25 +4,26 @@ Ceramic Arts Portfolio
 
 Main Page - https://reenapetrick.github.io/wrens.widgets/
 
-Next Steps -
+## Features
 
-- Working contact form - Formspree?
-- Gallery
-- About me blurb
-- brownser tab image logo
-- fix the image cropping for gallery
-- fix brown logo background removal
+- **Gallery** - Automatically loads images from `resources/gallery/` via `gallery/gallery.json`
+- **Portfolio** - Automatically loads images from `resources/portfolio/` via `portfolio/portfolio.json`
+- **Favicon** - Browser tab logo (favicon.png in root)
+- **Contact Form** - Implemented using FormSubmit.co
 
-## Gallery build
+## Build & Update
 
-Gallery images are loaded dynamically from `resources/gallery/` via `gallery/gallery.json`.
-
-To regenerate the JSON index after adding/removing images:
+To regenerate gallery and portfolio JSON indices after adding/removing images:
 
 ```bash
-node scripts/generate-gallery.js
+make generate
 ```
 
-## Contact form
+## Next Steps
 
-Contact form is implemented using FormSubmit.co
+- Gallery - add hover descriptions
+- About me blurb
+- fix brown logo background removal
+- make the footer nicer
+- latex for cv
+- french translations
