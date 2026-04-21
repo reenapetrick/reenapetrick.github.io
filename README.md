@@ -2,7 +2,7 @@
 
 Ceramic Arts Portfolio
 
-Main Page - https://reenapetrick.github.io/wrens.widgets/
+Main Page - https://reenapetrick.github.io
 
 ## Features
 
@@ -22,7 +22,6 @@ make generate
 ## Next Steps
 
 - Gallery - add hover descriptions
-- About me blurb
 - fix brown logo background removal
 - make the footer nicer
 - latex for cv

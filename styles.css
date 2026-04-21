@@ -55,7 +55,7 @@ html, body, body * {
 /* Large text content area */
 .content {max-width:900px; margin:32px auto; padding:24px; background:transparent; color:#87591d; line-height:1.6}
 .content p {margin-bottom:16px}
-.content .lead {font-size:18px; font-weight:300}
+.content .lead {font-size:18px; font-weight:bold !important;}
 
 /* Personal image icon (centered) */
 .me-icon {
@@ -64,6 +64,7 @@ html, body, body * {
   width: auto;
   max-width: 100%;
   height: auto;
+  padding-bottom: 50px;
 }
 
 /* Gallery grid (masonry-style, natural flow for mixed aspect ratios) */
