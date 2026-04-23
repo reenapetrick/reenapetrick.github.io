@@ -108,8 +108,9 @@ html, body, body * {
   }
 }
 
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
-}
+/* Blog styles */
+.blog-post { margin-bottom: 2rem; border-bottom: 1px solid rgba(135,89,29,0.2); padding-bottom: 2rem; }
+.blog-post:last-child { border-bottom: none; }
+.blog-post h2 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #87591d; }
+.blog-post time { display: block; font-style: italic; margin-bottom: 1rem; color: rgba(135,89,29,0.7); font-size: 0.9rem; }
+.blog-photo { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }

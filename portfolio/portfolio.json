@@ -36,6 +36,12 @@
     "alt": "IMG 0171"
   },
   {
+    "file": "IMG_0164.jpeg",
+    "created": 1772904403928,
+    "src": "../resources/portfolio/IMG_0164.jpeg",
+    "alt": "IMG 0164"
+  },
+  {
     "file": "Ode To My Favourite Tree.png",
     "created": 1769212387591.2236,
     "src": "../resources/portfolio/Ode%20To%20My%20Favourite%20Tree.png",
@@ -202,5 +208,17 @@
     "created": 1766858556259,
     "src": "../resources/portfolio/IMG_9541.jpeg",
     "alt": "IMG 9541"
+  },
+  {
+    "file": "IMG_7411.jpeg",
+    "created": 1751743014554,
+    "src": "../resources/portfolio/IMG_7411.jpeg",
+    "alt": "IMG 7411"
+  },
+  {
+    "file": "IMG_6514.jpeg",
+    "created": 1741533942944,
+    "src": "../resources/portfolio/IMG_6514.jpeg",
+    "alt": "IMG 6514"
   }
 ]
