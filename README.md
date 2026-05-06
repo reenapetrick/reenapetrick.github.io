@@ -10,6 +10,7 @@ Main Page - https://reenapetrick.github.io
 - **Portfolio** - Automatically loads images from `resources/portfolio/` via `portfolio/portfolio.json`
 - **Favicon** - Browser tab logo (favicon.png in root)
 - **Contact Form** - Implemented using FormSubmit.co
+- **Shop** - Cards with scrolling detail view modals
 
 ## Build & Update
 
@@ -23,6 +24,4 @@ make generate
 
 - Gallery - add hover descriptions
 - fix brown logo background removal
-- make the footer nicer
-- latex for cv
 - french translations

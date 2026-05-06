@@ -1,0 +1,45 @@
+[
+  {
+    "id": "cindy-print-001",
+    "title": "Cindy",
+    "description": "Limited first edition of 14 prints.",
+    "price": 40.00,
+    "dimensions": "Image size: 6 x 8 inches, Paper size: 10 x 12.5 inches",
+    "available": 8,
+    "images": [
+      "../resources/shop/cindy/IMG_0776.jpeg",
+      "../resources/shop/cindy/IMG_6489.jpeg",
+      "../resources/shop/cindy/IMG_6501.jpeg",
+      "../resources/shop/cindy/IMG_7366.jpeg"
+    ],
+    "paypal": "<!-- Replace with PayPal Buy Now Button Code -->"
+  },
+  {
+    "id": "karl-print-002",
+    "title": "Karl",
+    "description": "Limited first edition of 12 prints.",
+    "price": 20.00,
+    "dimensions": "Image size: 7.5 x 5.5 cm, Paper size: 18 x 15 cm",
+    "available": 9,
+    "images": [
+      "../resources/shop/karl/IMG_0773.jpeg",
+      "../resources/shop/karl/IMG_7371.jpeg",
+      "../resources/shop/karl/IMG_7382.jpeg"
+    ],
+    "paypal": "<!-- Replace with PayPal Buy Now Button Code -->"
+  },
+  {
+    "id": "clive-print-003",
+    "title": "Clive",
+    "description": "Limited first edition of 18 prints.",
+    "price": 30.00,
+    "dimensions": "Image size: 4 x 3 inches, Paper size: 5 x 7 inches",
+    "available": 16,
+    "images": [
+      "../resources/shop/clive/IMG_0768.jpeg",
+      "../resources/shop/clive/IMG_0165.jpeg",
+      "../resources/shop/clive/IMG_3420.jpeg"
+    ],
+    "paypal": "<!-- Replace with PayPal Buy Now Button Code -->"
+  }
+]

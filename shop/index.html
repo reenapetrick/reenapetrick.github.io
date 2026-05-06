@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop - Wren's Widgets</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAzVFLDdaCEBs7Z6yrbPHNiT0xjaOEV1gBOgKs61R4wi-dWWyeNmLMv5E0TvSkj3otRGxPOWvBbwnevII&components=hosted-buttons&disable-funding=venmo&currency=CAD">
+</script>
+</head>
+<body>
+<header class="header-bar">
+  <img src="../resources/logos/couple_brownText_noBackground.png" alt="logo" class="header-logo">
+  <h1>R &nbsp; E &nbsp; E &nbsp; N &nbsp; A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; P &nbsp; E &nbsp; T &nbsp; R &nbsp; I &nbsp; C &nbsp; K</h1>
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="../">about</a></li>
+      <li><a href="../gallery/">gallery</a></li>
+      <li><a href="../portfolio/">portfolio</a></li>
+      <li><a href="./">shop</a></li>
+      <li><a href="../blog/">blog</a></li>
+      <li><a href="../contact/">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="content">
+  <h2>Shop</h2>
+  <p>Welcome to my shop! I made this stuff : ) </p>
+  <p>If you want to buy something, please use the contact form. I'll need your order, name, and mailing address.</p>
+  <p>I will email you back with a paypal link for you to complete the purchase. Flat rate of $5 for shipping in Canada. </p>
+  <div id="shop" class="shop-grid" aria-live="polite">
+    <div class="shop-loading">Loading shop items…</div>
+  </div>
+</main>
+
+<!-- Detail Modal -->
+<div id="detail-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <div id="detail-info" class="detail-info"></div>
+    <div id="detail-images" class="detail-images"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <a href="https://github.com/reenapetrick">Github</a> &nbsp;|&nbsp; <a href="https://www.instagram.com/wrens.widgets/">Instagram</a>
+</footer>
+
+<script>
+async function renderShop() {
+  const container = document.getElementById('shop');
+  if (!container) return;
+
+  container.innerHTML = '<div class="shop-loading">Loading shop items…</div>';
+
+  try {
+    const response = await fetch('shop.json');
+    if (!response.ok) throw new Error(response.statusText);
+
+    const items = await response.json();
+    const fragment = document.createDocumentFragment();
+
+    items.forEach((item) => {
+      const card = document.createElement('div');
+      card.className = 'shop-item';
+
+      const img = document.createElement('img');
+      img.src = item.images[0]; // Use first image
+      img.alt = item.title;
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openDetailView(item));
+
+      const title = document.createElement('h3');
+      title.textContent = item.title;
+
+      const price = document.createElement('p');
+      price.className = 'price';
+      price.textContent = `$${item.price.toFixed(2)}`;
+
+      const available = document.createElement('p');
+      available.className = 'available';
+      available.textContent = `Available: ${item.available}`;
+
+      card.appendChild(img);
+      card.appendChild(title);
+      card.appendChild(price);
+      card.appendChild(available);
+
+      fragment.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(fragment);
+  } catch (err) {
+    console.error('Shop load error:', err);
+    container.innerHTML = '<div class="shop-loading">Unable to load shop items.</div>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', renderShop);
+
+// Detail view functions
+function openDetailView(item) {
+  const modal = document.getElementById('detail-modal');
+  const imagesContainer = document.getElementById('detail-images');
+  const infoContainer = document.getElementById('detail-info');
+  const printBlurb = "Printed by hand at the Sunbury Shores historic print studio, in St. Andrews, NB.";
+  const materialsBlurb = "Made with archival quality oil-based ink and Kozuke rice paper.";
+
+  // Clear previous content
+  imagesContainer.innerHTML = '';
+  infoContainer.innerHTML = '';
+
+  // Add item info
+  const title = document.createElement('h2');
+  title.textContent = item.title;
+
+  const description = document.createElement('p');
+  description.textContent = item.description;
+
+  const printMessage = document.createElement('p');
+  printMessage.textContent = printBlurb;
+
+  const materialsMessage = document.createElement('p');
+  materialsMessage.textContent = materialsBlurb;
+
+  const price = document.createElement('p');
+  price.className = 'price';
+  price.textContent = `$${item.price.toFixed(2)}`;
+  
+  const dimensions = document.createElement('p');
+  dimensions.className = 'dimensions';
+  dimensions.textContent = item.dimensions;
+
+  const paypalDiv = document.createElement('div');
+  paypalDiv.className = 'paypal-button-container';
+  paypalDiv.innerHTML = item.paypal || '<p><em>PayPal details coming soon.</em></p>';
+
+  infoContainer.appendChild(title);
+  infoContainer.appendChild(description);
+  infoContainer.appendChild(printMessage);
+  infoContainer.appendChild(materialsMessage);
+  infoContainer.appendChild(dimensions);
+  infoContainer.appendChild(price);
+  infoContainer.appendChild(paypalDiv);
+
+  // Add images
+  item.images.forEach((imageSrc, index) => {
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = `${item.title} - Image ${index + 1}`;
+    img.className = 'detail-image';
+    imagesContainer.appendChild(img);
+  });
+
+  // Show modal
+  modal.style.display = 'block';
+}
+
+function closeDetailView() {
+  const modal = document.getElementById('detail-modal');
+  modal.style.display = 'none';
+}
+
+// Close modal when clicking the close button
+document.addEventListener('DOMContentLoaded', () => {
+  const closeButton = document.querySelector('.close-button');
+  if (closeButton) {
+    closeButton.addEventListener('click', closeDetailView);
+  }
+
+  // Close modal when clicking outside
+  const modal = document.getElementById('detail-modal');
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeDetailView();
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

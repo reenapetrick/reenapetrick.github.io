@@ -1,5 +1,23 @@
 [
   {
+    "file": "IMG_0776.jpeg",
+    "created": 1778006127744,
+    "src": "../resources/portfolio/IMG_0776.jpeg",
+    "alt": "IMG 0776"
+  },
+  {
+    "file": "IMG_0773.jpeg",
+    "created": 1778005840796,
+    "src": "../resources/portfolio/IMG_0773.jpeg",
+    "alt": "IMG 0773"
+  },
+  {
+    "file": "IMG_0768.jpeg",
+    "created": 1778005499108,
+    "src": "../resources/portfolio/IMG_0768.jpeg",
+    "alt": "IMG 0768"
+  },
+  {
     "file": "IMG_0560.jpeg",
     "created": 1776782589962,
     "src": "../resources/portfolio/IMG_0560.jpeg",
@@ -34,12 +52,6 @@
     "created": 1772910636909,
     "src": "../resources/portfolio/IMG_0171.jpeg",
     "alt": "IMG 0171"
-  },
-  {
-    "file": "IMG_0164.jpeg",
-    "created": 1772904403928,
-    "src": "../resources/portfolio/IMG_0164.jpeg",
-    "alt": "IMG 0164"
   },
   {
     "file": "Ode To My Favourite Tree.png",
@@ -208,17 +220,5 @@
     "created": 1766858556259,
     "src": "../resources/portfolio/IMG_9541.jpeg",
     "alt": "IMG 9541"
-  },
-  {
-    "file": "IMG_7411.jpeg",
-    "created": 1751743014554,
-    "src": "../resources/portfolio/IMG_7411.jpeg",
-    "alt": "IMG 7411"
-  },
-  {
-    "file": "IMG_6514.jpeg",
-    "created": 1741533942944,
-    "src": "../resources/portfolio/IMG_6514.jpeg",
-    "alt": "IMG 6514"
   }
 ]
