@@ -54,14 +54,47 @@ html, body, body * {
 .content p {margin-bottom:16px}
 .content .lead {font-size:18px; font-weight:bold !important;}
 
-/* Personal image icon (centered) */
-.me-icon {
+/* In-Text image icon with caption (centered) */
+.image-caption-container {
   display: block;
+  width: max-content;
   margin: 0.5rem auto 1rem;
+  text-align: left;
+}
+
+.image-caption-container img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+}
+
+.image-caption {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #a48366;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  margin-top: 0.35rem;
+  line-height: 1.3;
+}
+
+.image-caption a {
+  color: #a48366;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  text-decoration: none;
+}
+
+.image-caption a:hover {
+  text-decoration: underline;
+}
+
+.image-icon {
+  display: block;
   width: auto;
   max-width: 100%;
   height: auto;
-  padding-bottom: 50px;
 }
 
 /* Gallery grid (masonry-style, natural flow for mixed aspect ratios) */
