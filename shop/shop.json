@@ -11,8 +11,7 @@
       "../resources/shop/cindy/IMG_6489.jpeg",
       "../resources/shop/cindy/IMG_6501.jpeg",
       "../resources/shop/cindy/IMG_7366.jpeg"
-    ],
-    "paypal": "<!-- Replace with PayPal Buy Now Button Code -->"
+    ]
   },
   {
     "id": "karl-print-002",
@@ -25,8 +24,7 @@
       "../resources/shop/karl/IMG_0773.jpeg",
       "../resources/shop/karl/IMG_7371.jpeg",
       "../resources/shop/karl/IMG_7382.jpeg"
-    ],
-    "paypal": "<!-- Replace with PayPal Buy Now Button Code -->"
+    ]
   },
   {
     "id": "clive-print-003",
@@ -39,7 +37,6 @@
       "../resources/shop/clive/IMG_0768.jpeg",
       "../resources/shop/clive/IMG_0165.jpeg",
       "../resources/shop/clive/IMG_3420.jpeg"
-    ],
-    "paypal": "<!-- Replace with PayPal Buy Now Button Code -->"
+    ]
   }
 ]

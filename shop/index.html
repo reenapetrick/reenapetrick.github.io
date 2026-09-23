@@ -6,9 +6,6 @@
   <title>Shop - Wren's Widgets</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/png" href="../favicon.png">
-  <script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAzVFLDdaCEBs7Z6yrbPHNiT0xjaOEV1gBOgKs61R4wi-dWWyeNmLMv5E0TvSkj3otRGxPOWvBbwnevII&components=hosted-buttons&disable-funding=venmo&currency=CAD">
-</script>
 </head>
 <body>
 <header class="header-bar">
@@ -29,8 +26,7 @@
 <main class="content">
   <h2>Shop</h2>
   <p>Welcome to my shop! I made this stuff : ) </p>
-  <p>If you want to buy something, please use the contact form. I'll need your order, name, and mailing address.</p>
-  <p>I will email you back with a paypal link for you to complete the purchase. Flat rate of $5 for shipping in Canada. </p>
+  <p>If you want to buy something, please use the contact form.</p>
   <div id="shop" class="shop-grid" aria-live="polite">
     <div class="shop-loading">Loading shop items…</div>
   </div>
@@ -135,17 +131,12 @@ function openDetailView(item) {
   dimensions.className = 'dimensions';
   dimensions.textContent = item.dimensions;
 
-  const paypalDiv = document.createElement('div');
-  paypalDiv.className = 'paypal-button-container';
-  paypalDiv.innerHTML = item.paypal || '<p><em>PayPal details coming soon.</em></p>';
-
   infoContainer.appendChild(title);
   infoContainer.appendChild(description);
   infoContainer.appendChild(printMessage);
   infoContainer.appendChild(materialsMessage);
   infoContainer.appendChild(dimensions);
   infoContainer.appendChild(price);
-  infoContainer.appendChild(paypalDiv);
 
   // Add images
   item.images.forEach((imageSrc, index) => {
